@@ -1,0 +1,25 @@
+{
+  "name": "chinny-chin-chin",
+  "version": "1.0.0",
+  "description": "Founders and Coders Week 5 Project",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "tape ./tests/test.js | tap-spec",
+    "dev": "nodemon ./src/server.js",
+    "start": "node start"
+  },
+  "author": "TEAM CHIN",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.15.2",
+    "request": "^2.88.0",
+    "supertest": "^3.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
+}
