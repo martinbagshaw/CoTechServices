@@ -27,5 +27,4 @@
 
 ### Just in case this project involves recursive piping
 
-![recursive pipe](https://media.giphy.com/media/3o6fJbxcUKYMDM4uLC/giphy.gif)
 ![pipe](https://media.giphy.com/media/3orif3H5piwSgUOZj2/giphy.gif)

@@ -7,6 +7,8 @@ test("is tape working?", function(t) {
   t.end();
 });
 
+
+// testing home route
 test("Home route returns 200 status code", t => {
   supertest(router)
     .get("/")
@@ -19,6 +21,7 @@ test("Home route returns 200 status code", t => {
     });
 });
 
+// testing a route that does not exist
 test("Invalid url returns 404 status code", t => {
   supertest(router)
     .get("/armadillo")
@@ -29,4 +32,32 @@ test("Invalid url returns 404 status code", t => {
       t.equal(res.statusCode, 404, "Should return 404");
       t.end();
     });
+});
+
+
+
+// testing file routing
+// - css
+test("style.css file loading as expected", t => {
+  supertest(router)
+    .get("/public/style.css")
+    .expect(200)
+    .expect("Content-Type", /css/)
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.statusCode, 200, "Should return 200");
+      t.end();
+  });
+});
+// - js
+test("dom.js file loading as expected", t => {
+  supertest(router)
+    .get("/public/dom.js")
+    .expect(200)
+    .expect("Content-Type", /application\/javascript/)
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.statusCode, 200, "Should return 200");
+      t.end();
+  });
 });
