@@ -1,6 +1,6 @@
 # Team Chinny Chin CHIN!!!
 
-![chin]https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif)
+![chin](https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif)
 ![chin](https://media.giphy.com/media/a5viI92PAF89q/giphy.gif)
 ![chin emoji](https://media.giphy.com/media/8lQyyys3SGBoUUxrUp/giphy.gif)
 ![chinese chin](https://media0.giphy.com/media/KVb5pdqZsNaKs/giphy.gif)
