@@ -1,9 +1,9 @@
 # Team Chinny Chin CHIN!!!
 
-![chin](https://giphy.com/gifs/paulmccartney-80s-chin-chinup-xTiTnzR3oXDcFea0NO)
-![chin](https://giphy.com/gifs/reaction-a5viI92PAF89q)
-![chin](https://giphy.com/gifs/andrea-8lQyyys3SGBoUUxrUp)
-![chin](https://giphy.com/gifs/retro-KVb5pdqZsNaKs)
+![chin]https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif)
+![chin](https://media.giphy.com/media/a5viI92PAF89q/giphy.gif)
+![chin emoji](https://media.giphy.com/media/8lQyyys3SGBoUUxrUp/giphy.gif)
+![chinese chin](https://media0.giphy.com/media/KVb5pdqZsNaKs/giphy.gif)
 
 ## How to set up our Project:
 
@@ -23,9 +23,9 @@
 
 ## We did a little bit of espionage on Wednesday afternoon:
 
-![espionage](https://giphy.com/gifs/chris-highqualitygifs-hansen-ba5g4ID9g5cT6)
+![espionage](https://media.giphy.com/media/ba5g4ID9g5cT6/giphy.gif)
 
 ### Just in case this project involves recursive piping
 
-![recursive pipe](https://giphy.com/gifs/humor-serious-fractal-3o6fJbxcUKYMDM4uLC)
-![pipe](https://giphy.com/gifs/season-15-the-simpsons-15x5-3orif3H5piwSgUOZj2)
+![recursive pipe](https://media.giphy.com/media/3o6fJbxcUKYMDM4uLC/giphy.gif)
+![pipe](https://media.giphy.com/media/3orif3H5piwSgUOZj2/giphy.gif)
