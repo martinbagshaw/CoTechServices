@@ -13,7 +13,7 @@ const router = (request, response) => {
     console.log("You are onload page");
     handlers.handleCoTechRequest(request, response);
   } else {
-    response.writeHead(404, "Content-Type: text/html");
+    response.writeHead(404, { "Content-Type": "text/html" });
     response.end(`404 File Not found`);
   }
 };
