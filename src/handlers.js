@@ -49,6 +49,7 @@ const handlePublic = (request, response, url) => {
 
 /*************** CO TECH API CALL ****************************************/
 const handleCoTechRequest = (req, res) => {
+
   console.log("serving cotech route");
   request(
     "https://www.coops.tech/wp-json/wp/v2/service",
@@ -56,7 +57,11 @@ const handleCoTechRequest = (req, res) => {
     (error, response, body) => {
       console.log("error:", error); // Print the error if one occurred
       console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      console.log("body:", body[0].slug);
+      //console.log("body:", body[0].slug);
+
+      body.forEach((item)=>{console.log(item.slug)});
+
+
       // console.log(body.explanation);
     }
   );
