@@ -47,23 +47,24 @@ const handlePublic = (request, response, url) => {
   });
 };
 
-/***************  API CALL ****************************************/
-
-request(
-  "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
-  { json: true },
-  (err, res, body) => {
-    if (err) {
-      return console.log(err);
+/*************** CO TECH API CALL ****************************************/
+const handleCoTechRequest = (req, res) => {
+  console.log("serving cotech route");
+  request(
+    "https://www.coops.tech/wp-json/wp/v2/service",
+    { json: true },
+    (error, response, body) => {
+      console.log("error:", error); // Print the error if one occurred
+      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
+      console.log("body:", body[0].slug);
+      // console.log(body.explanation);
     }
-    console.log(body.url);
-    console.log(body.explanation);
-  }
-);
-
+  );
+};
 // console.log(request);
 
 module.exports = {
   handleHomeRoute,
-  handlePublic
+  handlePublic,
+  handleCoTechRequest
 };
