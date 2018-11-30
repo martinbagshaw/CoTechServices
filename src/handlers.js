@@ -49,22 +49,6 @@ const handlePublic = (request, response, url) => {
 /*************** CO TECH API CALL ****************************************/
 
 const handleCoTechRequest = (req, res) => {
-<<<<<<< HEAD
-
-  console.log("serving cotech route");
-  request(
-    "https://www.coops.tech/wp-json/wp/v2/service",
-    { json: true },
-    (error, response, body) => {
-      console.log("error:", error); // Print the error if one occurred
-      console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-      //console.log("body:", body[0].slug);
-
-      body.forEach((item)=>{console.log(item.slug)});
-
-
-      // console.log(body.explanation);
-=======
   request(
     "https://www.coops.tech/wp-json/wp/v2/service",
     { json: true },
@@ -77,14 +61,16 @@ const handleCoTechRequest = (req, res) => {
         const services = body.forEach(service => {
           serviceArr.push(service.title.rendered);
           serviceArr.push(service.link);
+          serviceArr.push(service.acf.featured_image.sizes.thumbnail)
         });
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(serviceArr));
       }
->>>>>>> staging
     }
   );
 };
+
+
 
 /*************** WIKI API CALL ****************************************/
 // const handleCoTechRequest = (req, res) => {
