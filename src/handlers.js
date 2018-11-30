@@ -80,22 +80,46 @@ const handleCoTechRequest = (req, res) => {
 
 /*************** WIKI API CALL ****************************************/
 
-const handleWikiRequest = (req, res, wikiURL) => {
-  request(wikiURL,
+const handleWikiRequest = (req, res) => {
+  let searchTerm = 'research';
+  request(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=${searchTerm}`,
     { json: true },
-    (err, res, body) => {
+    (err, response, body) => {
       if (err) {
-        res.writeHead(404, { "Content-Type": "application/json" });
-        res.end("<h1>Sorry, server error.</h1>");
+        response.writeHead(404, { "Content-Type": "application/json" });
+        response.end("<h1>Sorry, server error.</h1>");
       } else {
+        res.writeHead(200, { "Content-Type": "application/json" });
         console.log(body);
-        console.log(res);
-        // res.writeHead(200, { "Content-Type": "application/json" });
-        // res.end(JSON.stringify(body));
+        res.end(JSON.stringify(body.query.pages));
+
       }
+      
     }
   )
 };
+
+
+
+
+
+
+// const handleWikiRequest = (req, res, searchTerm) => {
+//   request(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=${searchTerm}`,
+//     { json: true },
+//     (err, res, body) => {
+//       if (err) {
+//         res.writeHead(404, { "Content-Type": "application/json" });
+//         res.end("<h1>Sorry, server error.</h1>");
+//       } else {
+//         console.log(body);
+//         console.log(res);
+//         // res.writeHead(200, { "Content-Type": "application/json" });
+//         // res.end(JSON.stringify(body));
+//       }
+//     }
+//   )
+// };
 
 module.exports = {
   handleHomeRoute,
