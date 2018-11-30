@@ -1,5 +1,7 @@
 # Team Chinny Chin CHIN!!!
 
+[![codecov](https://codecov.io/gh/fac-15/chin/branch/master/graph/badge.svg)](https://codecov.io/gh/fac-15/chin)
+
 ![chin](https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif)
 ![chin](https://media.giphy.com/media/a5viI92PAF89q/giphy.gif)
 ![chin emoji](https://media.giphy.com/media/8lQyyys3SGBoUUxrUp/giphy.gif)
