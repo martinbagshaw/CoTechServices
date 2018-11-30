@@ -2,6 +2,9 @@ const test = require("tape");
 const router = require("../src/router.js");
 const supertest = require("supertest");
 
+// require dom.js
+const wikiFormat = require("../public/dom.js");
+
 test("is tape working?", function(t) {
   t.equal(1, 1, "1 should equal 1");
   t.end();
@@ -61,3 +64,22 @@ test("dom.js file loading as expected", t => {
       t.end();
   });
 });
+
+
+
+
+
+// function to test wikipedia formatting
+test('wikipedia formatting with one word', function(t){
+  const actual = wikiFormat('Research');
+  const expected = 'Research';
+  t.equals(actual, expected), 'wikipedia formatting with one word title';
+  t.end();
+})
+
+test('wikipedia formatting with two words', function(t){
+  const actual = wikiFormat('Game Design');
+  const expected = 'Game_design';
+  t.equals(actual, expected), 'wikipedia formatting with two word title';
+  t.end();
+})
