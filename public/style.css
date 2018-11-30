@@ -70,6 +70,12 @@ section {
   padding-bottom : 2rem;
   box-sizing : border-box;
 }
+
+.service-item {
+  
+}
+
+
 @media only screen and (min-width: 600px) {
   .service-container {
     display: flex;
