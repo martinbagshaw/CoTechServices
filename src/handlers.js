@@ -5,16 +5,15 @@ const request = require("request");
 /***************   HOME ROUTE (HTML) '/'****************************************/
 const handleHomeRoute = (request, response) => {
   const url = request.url;
-  console.log(`URL: ${url}`);
 
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(`Error: ${error}`);
-      response.writeHead(500, "Content-Type: text/html");
+      response.writeHead(500, { "Content-Type": "text/html" });
       response.end("<h1>Sorry, we'v had a problem on our end</h1>");
     } else {
-      response.writeHead(200, "Content-Type: text/html");
+      response.writeHead(200, { "Content-Type": "text/html" });
       response.end(file);
     }
   });
@@ -38,32 +37,69 @@ const handlePublic = (request, response, url) => {
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
-      response.writeHead(404, "Content-Type: text/html");
+      response.writeHead(404, { "Content-Type": "text/html" });
       response.end("<h1>File not found</h1>");
     } else {
-      response.writeHead(200, `Content-Type: ${extensionType[extension]}`);
+      response.writeHead(200, { "Content-Type": extensionType[extension] });
       response.end(file);
     }
   });
 };
 
-/***************  API CALL ****************************************/
+/*************** CO TECH API CALL ****************************************/
 
-request(
-  "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
-  { json: true },
-  (err, res, body) => {
-    if (err) {
-      return console.log(err);
+const handleCoTechRequest = (req, res) => {
+  request(
+    "https://www.coops.tech/wp-json/wp/v2/service",
+    { json: true },
+    (err, response, body) => {
+      if (err) {
+        response.writeHead(404, { "Content-Type": "application/json" });
+        response.end("<h1>Sorry, server error.</h1>");
+      } else {
+
+        let serviceArr = [];
+        const services = body.forEach(service => {
+
+          // push object to array
+          serviceArr.push({
+            title: service.title.rendered,
+            img: service.acf.featured_image.sizes.thumbnail,
+            url: service.link
+          })
+
+        });
+        
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(serviceArr));
+      }
     }
-    console.log(body.url);
-    console.log(body.explanation);
-  }
-);
+  );
+};
 
-// console.log(request);
+
+/*************** WIKI API CALL ****************************************/
+
+const handleWikiRequest = (req, res, wikiURL) => {
+  request(wikiURL,
+    { json: true },
+    (err, res, body) => {
+      if (err) {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        res.end("<h1>Sorry, server error.</h1>");
+      } else {
+        console.log(body);
+        console.log(res);
+        // res.writeHead(200, { "Content-Type": "application/json" });
+        // res.end(JSON.stringify(body));
+      }
+    }
+  )
+};
 
 module.exports = {
   handleHomeRoute,
-  handlePublic
+  handlePublic,
+  handleCoTechRequest,
+  handleWikiRequest
 };

@@ -1,3 +1,159 @@
-body{
-  background-color: blue;
+/* background gradients */
+/* css colour variables attached to the root element (html) */
+:root {
+  --blue: #1967d2;
+  --red-dark: #ff2323;
+  --green-dark: #289916;
+  --yellow-dark: #eaa000;
+  --blue-light: #0392c5;
+}
+
+body {
+  background-color: var(--blue-light);
+  color: black;
+  font-size: 16px/1em;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size : 2.35rem;
+  font-weight : 600;
+  line-height : 1.5;
+}
+
+p {
+  font-size : 1.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0;
+  display: none;
+}
+
+
+
+/* general spacing */
+header,
+section {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.service-container {
+  display: flex;
+  flex-direction: column;
+  padding : 2rem 0;
+  margin: 2rem 0;
+}
+.services:nth-child(1) {
+  border-bottom : 2px solid white;
+  margin-bottom : 2rem;
+  padding-bottom : 2rem;
+  box-sizing : border-box;
+}
+@media only screen and (min-width: 600px) {
+  .service-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .services:nth-child(1) {
+    border-bottom : none;
+    margin-bottom : 0;
+    padding-bottom : 0;
+    border-right : 2px solid white;
+    margin-right : 2rem;
+    padding-right : 2rem;
+    width : 50%;
+  }
+}
+
+
+
+/* header */
+header {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+/* submit button */
+.button-input {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.5rem;
+  margin-left : 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color ease-in-out 0.3s;
+  /* positioning */
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  /* colour */
+  color: var(--blue-fg);
+  background-color: var(--blue);
+}
+
+.button-input:hover,
+.button-input:focus {
+  background-color: var(--blue-light);
+}
+
+
+
+
+
+
+/* text input */
+.text-input {
+  font-family: 'Kalam', cursive;
+  font-size: 1.5rem;
+  text-indent: 0.5rem;/* lowercase j's get cut off */
+  width: 100%;
+  display: block;
+  padding: 1rem 0.5rem;
+  padding-right: 25%;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: 1px solid var(--blue);
+}
+.text-input:focus,
+.text-input:active {
+  border: 1px solid var(--blue);
+}
+
+
+
+/* error message */
+.error-msg {
+  background-color: var(--red);
+  color: white;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }

@@ -1,17 +1,21 @@
 const handlers = require("./handlers.js");
+const server = require("./server.js");
 
-const router = (request, response) => {
-  const url = request.url;
-  console.log(url);
+const router = (req, res) => {
+  const url = req.url;
+  // console.log(`You are at ${url}`);
   if (url === "/") {
-    console.log("You are at home.");
-    handlers.handleHomeRoute(request, response);
+    handlers.handleHomeRoute(req, res);
   } else if (url.indexOf("public") !== -1) {
-    console.log("Trying to get public");
-    handlers.handlePublic(request, response, url);
+    handlers.handlePublic(req, res, url);
+  } else if (url === "/coTechRequest") {
+    handlers.handleCoTechRequest(req, res);
+  } else if (url.includes('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=')) {
+    handlers.handleWikiRequest(req, res, url); 
+    console.log(url)
   } else {
-    response.writeHead(404, "Content-Type: text/html");
-    response.end(`404 File Not found`);
+    res.writeHead(404, { "Content-Type": "text/html" });
+    res.end(`404 File Not found`);
   }
 };
 

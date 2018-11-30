@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fac-15/chin?branch=staging)](https://travis-ci.org/fac-15/chin)
+
 # Team Chinny Chin CHIN!!!
 
 [![codecov](https://codecov.io/gh/fac-15/chin/branch/master/graph/badge.svg)](https://codecov.io/gh/fac-15/chin)
@@ -13,6 +15,10 @@
 - run `npm i` to install node modules and dependencies
 - `nodemon ./src/server.js` to run project from root folder
 - `tape ./tests/test.js` to run tests from root folder
+- `npm run dev` to start the project. Go to `http://localhost:4000/` to view
+- `npm run test` to run tests locally
+
+# note to reviewers: run on staging branch
 
 ## Our Process:
 
@@ -27,7 +33,6 @@
 
 ![espionage](https://media.giphy.com/media/ba5g4ID9g5cT6/giphy.gif)
 
-### Just in case this project involves recursive piping
+### Just in case this project involves piping
 
-![recursive pipe](https://media.giphy.com/media/3o6fJbxcUKYMDM4uLC/giphy.gif)
 ![pipe](https://media.giphy.com/media/3orif3H5piwSgUOZj2/giphy.gif)

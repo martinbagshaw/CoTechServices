@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <title>Team Chin</title>
+    <meta name="description" content="Team Chinny Chin Chin's awesome thing for CoTech">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/public/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="/public/reset.css">
     <link rel="stylesheet" href="/public/style.css">
-    <title>Team Chin</title>
   </head>
   <body>
-    <h1>Hello world</h1>
+    <main>
+        <header>
+            <h1>Tech Services</h1>
+            <p>A list of Tech Services provided by coops that are members of <a href="https://www.coops.tech/" target="_blank">Co-Tech</a></p>
+            <p>Click a Service to Find out more information</p>
+        </header>
+        <section>
+          <h2>Tech Services offered by CoTech</h2>
 
+          <div class="service-container">
+            <article class="services co-tech-services">
+                <!-- add services from initial API call here -->
+                <ul id="services">
+                </ul>
+              </article>
+              <!-- add service info from secondary API call here -->
+              <article id="service-info" class="services service-info">
+                <p>add service info here</p>
+              </article>
+          </div>
 
-    <script type="text/javascript" src="/public/dom.js"></script>
+        </section>
+    </main>
+
     <script type="text/javascript" src="/public/request.js"></script>
+    <script type="text/javascript" src="/public/dom.js"></script>
   </body>
 </html>
