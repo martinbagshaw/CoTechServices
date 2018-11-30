@@ -14,3 +14,27 @@ const makeRequest = (response) => {
 
 // we HAVE to call the function!!!
 makeRequest();
+
+
+
+
+// - - - - - - - - - - - - -
+// wikipedia Request - from click
+// - getting CORS
+const wikiRequest = (response, formatted) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+
+      xhr.setRequestHeader("Origin", "http://localhost:4000/");
+      xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+      const a = JSON.parse(xhr.responseText);
+      // callback function
+      console.log(response, a);
+      // outputServices(coTechObj);
+    }
+  };
+  xhr.open("GET", `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=${formatted}`, true);
+  xhr.send();
+};

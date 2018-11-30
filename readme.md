@@ -14,6 +14,9 @@
 - `nodemon ./src/server.js` to run project from root folder
 - `tape ./tests/test.js` to run tests from root folder
 - `npm run dev` to start the project. Go to `http://localhost:4000/` to view
+- `npm run test` to run tests locally
+
+# note to reviewers: run on staging branch
 
 ## Our Process:
 

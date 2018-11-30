@@ -78,31 +78,28 @@ const handleCoTechRequest = (req, res) => {
 };
 
 
-
 /*************** WIKI API CALL ****************************************/
-// const handleCoTechRequest = (req, res) => {
-//   request(
-//     "https://www.coops.tech/wp-json/wp/v2/service",
-//     { json: true },
-//     (err, response, body) => {
-//       if (err) {
-//         response.writeHead(404, { "Content-Type": "application/json" });
-//         response.end("<h1>Sorry, server error.</h1>");
-//       } else {
-//         let serviceArr = [];
-//         const services = body.forEach(service => {
-//           serviceArr.push(service.title.rendered);
-//           serviceArr.push(service.link);
-//         });
-//         res.writeHead(200, { "Content-Type": "application/json" });
-//         res.end(JSON.stringify(serviceArr));
-//       }
-//     }
-//   );
-// };
+
+const handleWikiRequest = (req, res, wikiURL) => {
+  request(wikiURL,
+    { json: true },
+    (err, res, body) => {
+      if (err) {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        res.end("<h1>Sorry, server error.</h1>");
+      } else {
+        console.log(body);
+        console.log(res);
+        // res.writeHead(200, { "Content-Type": "application/json" });
+        // res.end(JSON.stringify(body));
+      }
+    }
+  )
+};
 
 module.exports = {
   handleHomeRoute,
   handlePublic,
-  handleCoTechRequest
+  handleCoTechRequest,
+  handleWikiRequest
 };
