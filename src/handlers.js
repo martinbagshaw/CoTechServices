@@ -61,6 +61,7 @@ const handleCoTechRequest = (req, res) => {
         const services = body.forEach(service => {
           serviceArr.push(service.title.rendered);
           serviceArr.push(service.link);
+          serviceArr.push(service.acf.featured_image.sizes.thumbnail)
         });
         res.writeHead(200, { "Content-Type": "application/json" });
         res.end(JSON.stringify(serviceArr));
@@ -68,6 +69,8 @@ const handleCoTechRequest = (req, res) => {
     }
   );
 };
+
+
 
 /*************** WIKI API CALL ****************************************/
 // const handleCoTechRequest = (req, res) => {
