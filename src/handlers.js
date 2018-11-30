@@ -5,7 +5,6 @@ const request = require("request");
 /***************   HOME ROUTE (HTML) '/'****************************************/
 const handleHomeRoute = (request, response) => {
   const url = request.url;
-  console.log(`URL: ${url}`);
 
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
@@ -38,17 +37,19 @@ const handlePublic = (request, response, url) => {
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
-      response.writeHead(404, "Content-Type: text/html");
+      response.writeHead(404, { "Content-Type": "text/html" });
       response.end("<h1>File not found</h1>");
     } else {
-      response.writeHead(200, `Content-Type: ${extensionType[extension]}`);
+      response.writeHead(200, { "Content-Type": extensionType[extension] });
       response.end(file);
     }
   });
 };
 
 /*************** CO TECH API CALL ****************************************/
+
 const handleCoTechRequest = (req, res) => {
+<<<<<<< HEAD
 
   console.log("serving cotech route");
   request(
@@ -63,10 +64,49 @@ const handleCoTechRequest = (req, res) => {
 
 
       // console.log(body.explanation);
+=======
+  request(
+    "https://www.coops.tech/wp-json/wp/v2/service",
+    { json: true },
+    (err, response, body) => {
+      if (err) {
+        response.writeHead(404, { "Content-Type": "application/json" });
+        response.end("<h1>Sorry, server error.</h1>");
+      } else {
+        let serviceArr = [];
+        const services = body.forEach(service => {
+          serviceArr.push(service.title.rendered);
+          serviceArr.push(service.link);
+        });
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(serviceArr));
+      }
+>>>>>>> staging
     }
   );
 };
-// console.log(request);
+
+/*************** WIKI API CALL ****************************************/
+// const handleCoTechRequest = (req, res) => {
+//   request(
+//     "https://www.coops.tech/wp-json/wp/v2/service",
+//     { json: true },
+//     (err, response, body) => {
+//       if (err) {
+//         response.writeHead(404, { "Content-Type": "application/json" });
+//         response.end("<h1>Sorry, server error.</h1>");
+//       } else {
+//         let serviceArr = [];
+//         const services = body.forEach(service => {
+//           serviceArr.push(service.title.rendered);
+//           serviceArr.push(service.link);
+//         });
+//         res.writeHead(200, { "Content-Type": "application/json" });
+//         res.end(JSON.stringify(serviceArr));
+//       }
+//     }
+//   );
+// };
 
 module.exports = {
   handleHomeRoute,
