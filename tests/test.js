@@ -69,17 +69,32 @@ test("dom.js file loading as expected", t => {
 
 
 
-// function to test wikipedia formatting
+// functions to test wikipedia formatting
 test('wikipedia formatting with one word', function(t){
   const actual = wikiFormat('Research');
   const expected = 'Research';
   t.equals(actual, expected), 'wikipedia formatting with one word title';
   t.end();
 })
-
 test('wikipedia formatting with two words', function(t){
   const actual = wikiFormat('Game Design');
   const expected = 'Game_design';
   t.equals(actual, expected), 'wikipedia formatting with two word title';
+  t.end();
+})
+
+
+// functions to test location formatting
+test('location.href without #', function(t){
+  const actual = locationFormat('http://localhost:4000/');
+  const expected = 'http://localhost:4000/';
+  t.equals(actual, expected), 'location.href without # returns same as input';
+  t.end();
+})
+
+test('location.href with #', function(t){
+  const actual = locationFormat('http://localhost:4000/#service_Research');
+  const expected = 'http://localhost:4000/';
+  t.equals(actual, expected), 'location.href without # returns string before but not including #';
   t.end();
 })

@@ -8,7 +8,7 @@ const makeRequest = (response) => {
       outputServices(coTechObj);
     }
   };
-  xhr.open("GET", `/coTechRequest`, true);
+  xhr.open("GET", '/src', true); // was /coTechRequest
   xhr.send();
 };
 
@@ -20,7 +20,25 @@ makeRequest();
 
 
 
+
 // - - - - - - - - - - - - -
+// post request to router?
+const postRequest = (searchTerm) => {
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const wikiResult = JSON.parse(xhr.responseText);
+      // callback function
+      wikiCallback(wikiResult);
+    }
+  };
+  xhr.open("POST", `/search/${searchTerm}`, true);
+  xhr.send(searchTerm);
+};
+
+
+
+
 
 // const makeWikiRequest = (response, url) => {
 //   const xhr = new XMLHttpRequest();

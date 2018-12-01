@@ -1,0 +1,54 @@
+[
+    {
+        "title" : {
+            "rendered": "Game Design"
+        },
+        "acf" : {
+            "featured_image" : {
+                "sizes" : {
+                    "thumbnail" : "https://www.coops.tech/app/uploads/2016/12/business-systems.png"
+                }
+            }
+        },
+        "link" : "https://www.coops.tech/service/game-design"
+    },
+    {
+        "title" : {
+            "rendered": "Research"
+        },
+        "acf" : {
+            "featured_image" : {
+                "sizes" : {
+                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/noun_680041_cc_out.png"
+                }
+            }
+        },
+        "link" : "https://www.coops.tech/service/research"
+    },
+    {
+        "title" : {
+            "rendered": "Data standards"
+        },
+        "acf" : {
+            "featured_image" : {
+                "sizes" : {
+                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/noun_159604_cc_out.png"
+                }
+            }
+        },
+        "link" : "https://www.coops.tech/service/data-standards"
+    },
+    {
+        "title" : {
+            "rendered": "Information Security"
+        },
+        "acf" : {
+            "featured_image" : {
+                "sizes" : {
+                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/security.png"
+                }
+            }
+        },
+        "link" : "https://www.coops.tech/service/information-security"
+    }
+]
