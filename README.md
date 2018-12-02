@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mr-bagglesworth/CoTechServices.svg?branch=master)](https://travis-ci.org/mr-bagglesworth/CoTechServices) [![codecov](https://codecov.io/gh/mr-bagglesworth/CoTechServices/branch/master/graph/badge.svg)]
+[![Build Status](https://travis-ci.org/mr-bagglesworth/CoTechServices.svg?branch=master)](https://travis-ci.org/mr-bagglesworth/CoTechServices) ![codecov](https://codecov.io/gh/mr-bagglesworth/CoTechServices/branch/master/graph/badge.svg)
 
 # CoTechServices
 
