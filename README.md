@@ -1,11 +1,11 @@
-[travis and code coverage badges]
+[![Build Status](https://travis-ci.org/mr-bagglesworth/CoTechServices.svg?branch=master)](https://travis-ci.org/mr-bagglesworth/CoTechServices) [![codecov](https://codecov.io/gh/mr-bagglesworth/CoTechServices/branch/master/graph/badge.svg)]
 
 # CoTechServices
 
 A project started on Founders and Coders Course, Week 5, node week 2, in collaboration with [teenie-quaggard](https://github.com/teenie-quaggard), [wright1](https://github.com/wright1), and [charlielafosse](https://github.com/charlielafosse), a.k.a. **Team Chinny Chin CHIN!!!**. Another cool project I could not resist but add some finishing touches to!
 
-![chin](https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif | width=250)
-![chin](https://media.giphy.com/media/a5viI92PAF89q/giphy.gif | width=250)
+![chin](https://media.giphy.com/media/xTiTnzR3oXDcFea0NO/giphy.gif)
+![chin](https://media.giphy.com/media/a5viI92PAF89q/giphy.gif)
 
 
 ## About this project
@@ -31,14 +31,14 @@ We opted to use the WordPress REST API endpoint for _services_ from the CoTech w
 
 ### Project process and debrief
 
-- **Planning:** On Wednesday afternoon, we whiteboarded what the mentors _may_ tell us to do on Thursday, setting up a node.js project that is set up to host front end files, and work with APIs. On Thursday, we spent a while deliberating over what to build, while looking in to the data provided by CoTech API endpoints, which wasn't anywhere near as detailed, or as well associated as we hoped it would be. Ideas of matching technologies and services to people and businesses got scrapped due to lack of data and association in the json.
-- **Tools:** We used a bit of a wider array of tools for this project, following on from the week's instruction, and paying attention to hoops to jump through in the brief. Notably, we used [Travis](https://travis-ci.org/) for continuous integration, running our tests for us on each commit to Github. We also attempted to use eslint and prettier on our machines to enforce style guidelines (with mixed results), and [nyc](https://www.npmjs.com/package/nyc) for code coverage, to see how much of our codebase our tests cover.
+- **Planning:** :clipboard: On Wednesday afternoon, we whiteboarded what the mentors _may_ tell us to do on Thursday, setting up a node.js project that is set up to host front end files, and work with APIs. On Thursday, we spent a while deliberating over what to build, while looking in to the data provided by CoTech API endpoints, which wasn't anywhere near as detailed, or as well associated as we hoped it would be. Ideas of matching technologies and services to people and businesses got scrapped due to lack of data and association in the json.
+- **Tools:** :wrench: We used a bit of a wider array of tools for this project, following on from the week's instruction, and paying attention to hoops to jump through in the brief. Notably, we used [Travis](https://travis-ci.org/) for continuous integration, running our tests for us on each commit to Github. We also attempted to use eslint and prettier on our machines to enforce style guidelines (with mixed results), and [nyc](https://www.npmjs.com/package/nyc) for code coverage, to see how much of our codebase our tests cover.
 - **Things that went well:** :fire:
     - The initial setup
     - Most group communication and decision making, especially when narrowing down the scope of our project and researching technical limitations
     - Explanation and understanding of code between team members (when things were going well)
     - Got the initial output from WordPress API sorted fairly quickly
-- **Difficulties** :mount_fuji:
+- **Difficulties** :exclamation:
     - Working out how to call the Wikipedia API on the back end, and in response to user input (the click event)
     - Not going around in circles when trying to work out the above. We should have probably taken more breaks and asked other people a bit more.
     - Using ```module.exports``` in the DOM file correctly. This may have prevented tests from passing
@@ -49,9 +49,10 @@ We opted to use the WordPress REST API endpoint for _services_ from the CoTech w
 - [Original Repo](https://github.com/fac-15/chin)
 - [Project Brief](https://hackmd.io/h9fBLTDERVKg9CGr3KINMQ?view)
 - [Continuous Integration Cheatsheet](https://hackmd.io/LNg8wXcBTDSdShMTu64x5A)
+- [Pre Project Research](https://github.com/fac-15/Research/tree/master/week%205)
 
 
-### What I did after (at home). Not explained very succinctly... :scroll:
+### What I did afterwards - fix and finish at home. Not explained very succinctly... :checkered_flag:
 1. Looking in the router.js, I found out that no change in url was being logged to the terminal on hash change (url change). The last change we made on the project was to change the value of the address bar in ```location.href``` to the ```textContent``` of the clicked item. It was assumed that the router would pick up this change in url, and use it to make the correct http request to the Wikipedia API.
 2. I made a new **XMLHttpRequest** function in ```request.js```, using the **POST** method, and passing in the search term from the click event in the ```dom.js```file.
 3. In the ```router.js``` file, I logged out ```request.method``` to listen for the POST method, and ```request.url``` to listen for the corresponding url. I checked my terminal to find that the POST was working after a button click.
@@ -60,7 +61,7 @@ We opted to use the WordPress REST API endpoint for _services_ from the CoTech w
 6. I defined a callback function in ```dom.js```, and called it in the **XMLHttpRequest** function in ```request.js```, from step 2. This logged data from Wikipedia to the front end.
 
 
-### Known bugs, improvements to be made, other bits (in my version)
+### Known bugs, improvements to be made, other bits (in my version) :bug:
 - More tests required. Didn't quite work out how to write failing tests for ```handlers.js```.
 - Feature to scroll to Wikipedia info works on second, not initial click.
     - This is because Wikipedia info box loads **after** the click event fires. Therefore the browser does not have a css id to scroll to the first time around. A possible way to fix this would be to set a timeout on this behaviour.
