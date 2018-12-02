@@ -1,9 +1,8 @@
 // DOM manipulation here
 "use strict";
 
-// initial callback function - output services
+// initial callback function - output service list items
 const outputServices = (response) => {
-    // output list items
 
     // use an anchor link to scroll to info on moblie
     // - needs to be clicked twice, due to wikipedia loading delay
@@ -16,9 +15,8 @@ const outputServices = (response) => {
     </li>
     `).join('');
     document.getElementById("services").innerHTML = outputItems;
-    // <a href="${item.url}">View on CoTech website</a>
     
-    // add function here to add event listeners to service list items
+    // function adds event listeners to service list items
     serviceEventListener();
 };
 
@@ -89,7 +87,7 @@ const wikiCallback = (response) => {
 
 
 // ________________________________________________
-// helper functions
+// helper functions - only testable functions here
 
 // format clicked search term to put into wikipedia
 const wikiFormat = title => {    
@@ -115,6 +113,7 @@ const locationFormat = location => {
         return location;
     }
 }
+
 // export functions for testing
 if (typeof module !== "undefined") {
     module.exports = {

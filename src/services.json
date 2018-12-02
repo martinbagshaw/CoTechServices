@@ -6,7 +6,7 @@
         "acf" : {
             "featured_image" : {
                 "sizes" : {
-                    "thumbnail" : "https://www.coops.tech/app/uploads/2016/12/business-systems.png"
+                    "thumbnail" : "/public/img/service-img/game-design.png"
                 }
             }
         },
@@ -19,7 +19,7 @@
         "acf" : {
             "featured_image" : {
                 "sizes" : {
-                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/noun_680041_cc_out.png"
+                    "thumbnail" : "/public/img/service-img/research.png"
                 }
             }
         },
@@ -32,7 +32,7 @@
         "acf" : {
             "featured_image" : {
                 "sizes" : {
-                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/noun_159604_cc_out.png"
+                    "thumbnail" : "/public/img/service-img/data-standards.png"
                 }
             }
         },
@@ -45,7 +45,7 @@
         "acf" : {
             "featured_image" : {
                 "sizes" : {
-                    "thumbnail" : "https://www.coops.tech/app/uploads/2017/05/security.png"
+                    "thumbnail" : "/public/img/service-img/it-security.png"
                 }
             }
         },

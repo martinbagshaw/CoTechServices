@@ -9,12 +9,10 @@ const serviceJson = require("./services.json");
 
 // home/index page
 const handleHomeRoute = (request, response) => {
-  const url = request.url;
-
   const filePath = path.join(__dirname, "..", "public", "index.html");
   fs.readFile(filePath, (error, file) => {
     if (error) {
-      console.log(`Error: ${error}`);
+      console.log(error);
       response.writeHead(500, { "Content-Type": "text/html" });
       response.end("<h1>Sorry, we'v had a problem on our end</h1>");
     } else {
@@ -27,7 +25,8 @@ const handleHomeRoute = (request, response) => {
 
 
 // files
-const handlePublic = (request, response, url) => {
+const handlePublic = (request, response) => {
+  const url = request.url;
   const extension = url.split(".")[1];
   const extensionType = {
     html: "text/html",
@@ -39,7 +38,6 @@ const handlePublic = (request, response, url) => {
   };
 
   const filePath = path.join(__dirname, "..", url);
-
   fs.readFile(filePath, (error, file) => {
     if (error) {
       console.log(error);
@@ -89,13 +87,12 @@ const handleCoTechRequest = (req, res) => {
   // );
 
 
-
   // at home, no API, use static json from file
   const filePath = path.join(__dirname, "../", "src", "services.json");
 
   fs.readFile(filePath, (err, file) => {
     if (err) {
-      console.log("json error");
+      console.log(err);
       res.writeHead(500, { "Content-Type": "text/html" });
       res.end("this is an json error");
     } else {
@@ -124,10 +121,12 @@ const handleCoTechRequest = (req, res) => {
 
 
 // Wikipedia API
-const handleWikiRequest = (req, res, url) => {
+const handleWikiRequest = (req, res) => {
 
-  // need to filter for pages that don't exist before setting searchTerm. Pick a different searchTerm for these
+  const url = req.url;
+  // need to filter for pages that don't exist before setting searchTerm. Pick a different searchTerm for the following:
   // - Data Standards
+  // ...and loads more
 
   // get search term from url
   const searchTerm = url.split("/")[2];
@@ -144,7 +143,7 @@ const handleWikiRequest = (req, res, url) => {
       } else {
         res.writeHead(200, { "Content-Type": "application/json" });
 
-        // console.log(body.query.pages); - gets the stuff we want
+        // body.query.pages - gets the stuff we want
         const key = Object.keys(body.query.pages).toString();
         const objRef = body.query.pages;
 
@@ -175,42 +174,6 @@ const handleWikiRequest = (req, res, url) => {
   )
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const handleWikiRequest = (req, res, searchTerm) => {
-//   request(`https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=${searchTerm}`,
-//     { json: true },
-//     (err, res, body) => {
-//       if (err) {
-//         res.writeHead(404, { "Content-Type": "application/json" });
-//         res.end("<h1>Sorry, server error.</h1>");
-//       } else {
-//         console.log(body);
-//         console.log(res);
-//         // res.writeHead(200, { "Content-Type": "application/json" });
-//         // res.end(JSON.stringify(body));
-//       }
-//     }
-//   )
-// };
 
 module.exports = {
   handleHomeRoute,
