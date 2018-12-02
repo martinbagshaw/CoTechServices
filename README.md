@@ -56,15 +56,15 @@ We opted to use the WordPress REST API endpoint for _services_ from the CoTech w
 1. Looking in the router.js, I found out that no change in url was being logged to the terminal on hash change (url change). The last change we made on the project was to change the value of the address bar in ```location.href``` to the ```textContent``` of the clicked item. It was assumed that the router would pick up this change in url, and use it to make the correct http request to the Wikipedia API.
 2. I made a new **XMLHttpRequest** function in ```request.js```, using the **POST** method, and passing in the search term from the click event in the ```dom.js```file.
 3. In the ```router.js``` file, I logged out ```request.method``` to listen for the POST method, and ```request.url``` to listen for the corresponding url. I checked my terminal to find that the POST was working after a button click.
-4. I made a conditional statement in ```router.js``` to forward POST methods with **'/search'** in the url to the ```handleWikiRequest``` unction in ```handlers.js```.
-5. The ```handleWikiRequest``` unction extracts the search term from the url that is passed in, and uses it to fetch data from the Wikipedia API.
+4. I made a conditional statement in ```router.js``` to forward POST methods with **'/search'** in the url to the ```handleWikiRequest``` function in ```handlers.js```.
+5. The ```handleWikiRequest``` function extracts the search term from the url that is passed in, and uses it to fetch data from the Wikipedia API.
 6. I defined a callback function in ```dom.js```, and called it in the **XMLHttpRequest** function in ```request.js```, from step 2. This logged data from Wikipedia to the front end.
 
 
 ### Known bugs, improvements to be made, other bits (in my version) :bug:
 - More tests required. Didn't quite work out how to write failing tests for ```handlers.js```.
 - Feature to scroll to Wikipedia info works on second, not initial click.
-    - This is because Wikipedia info box loads **after** the click event fires. Therefore the browser does not have a css id to scroll to the first time around. A possible way to fix this would be to set a timeout on this behaviour.
+    - This is because Wikipedia info box (along with linking id) loads **after** the click event fires. Therefore the browser does not have an id to scroll to the first time around. A possible way to fix this _may_ be to set a timeout on this behaviour.
 - A static json file, and images within the project are used _rather than_ the CoTech API. The API seemed to stop working when at home (maybe due to too many requests, maybe due to being away from Space 4). Code to switch to the API is commented out.
 - Some services do not match exact Wikipedia search terms, and fail to return a result. Relevant Wikipedia pages for each service may exist, but with different titles. Solutions may include:
     - Mapping CoTech service names to Wikipedia equivalents
